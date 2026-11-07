@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AshaCare Foundation | Hope, Dignity & Community Welfare</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons via unpkg -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              teal: '#0d9488',
+              coral: '#f43f5e',
+              coralDark: '#e11d48',
+              amber: '#f59e0b',
+            }
+          },
+          animation: {
+            'pulse-soft': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 5s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-8px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Glassmorphism utilities */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    .glass-dark {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .badge-gradient {
+      background: linear-gradient(135deg, #0d9488 0%, #10b981 50%, #059669 100%);
+    }
+    .hero-mesh {
+      background-color: #f8fafc;
+      background-image: 
+        radial-gradient(at 10% 20%, rgba(13, 148, 136, 0.12) 0px, transparent 50%),
+        radial-gradient(at 90% 10%, rgba(244, 63, 94, 0.1) 0px, transparent 50%),
+        radial-gradient(at 50% 90%, rgba(16, 185, 129, 0.08) 0px, transparent 60%);
+    }
+    /* Hide scrollbars but allow scrolling */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-teal-500 selection:text-white">
+
+  <div class="bg-gradient-to-r from-brand-coral via-rose-600 to-amber-600 text-white text-xs sm:text-sm font-semibold py-2 px-4 shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <span class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold bg-white text-rose-600 rounded-full animate-pulse">URGENT</span>
+        <span>Floods Relieve Appeal: 1,400+ family kits deployed in Assam & Bihar. 100% funds channeled to field relief.</span>
+      </div>
+      <a href="#donate" onclick="selectCampaignPreset('Disaster Relief')" class="hidden md:inline-flex items-center hover:underline font-bold text-white pl-3 text-xs tracking-wide">
+        Donate Relief Kit &rarr;
+      </a>
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300" id="mainHeader">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-teal to-brand-500 flex items-center justify-center text-white shadow-lg shadow-teal-500/25 group-hover:scale-105 transition-transform">
+          <i data-lucide="heart-handshake" class="w-6 h-6 stroke-[2.2]"></i>
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-brand-teal transition-colors">AshaCare</span>
+          <span class="text-xs block font-semibold text-brand-coral uppercase tracking-wider -mt-1">Samvedna Trust</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-600">
+        <a href="#about" class="hover:text-brand-teal transition-colors py-1">About Us</a>
+        <a href="#causes" class="hover:text-brand-teal transition-colors py-1">Initiatives</a>
+        <a href="#impact" class="hover:text-brand-teal transition-colors py-1">Transparency</a>
+        <a href="#volunteer" class="hover:text-brand-teal transition-colors py-1">Volunteer Pass</a>
+        <a href="#stories" class="hover:text-brand-teal transition-colors py-1">Stories</a>
+        <a href="#faq" class="hover:text-brand-teal transition-colors py-1">FAQ</a>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="hidden sm:flex items-center space-x-3">
+        <a href="#volunteer" class="px-4 py-2 text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition duration-150">
+          Volunteer
+        </a>
+        <a href="#donate" class="px-5 py-2.5 text-sm font-bold text-white bg-gradient-to-r from-brand-teal to-brand-500 hover:from-teal-700 hover:to-emerald-600 rounded-xl shadow-md shadow-emerald-500/20 hover:shadow-lg transition-all duration-200 flex items-center space-x-2">
+          <i data-lucide="heart" class="w-4 h-4 fill-white"></i>
+          <span>Donate Now</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 transition" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </nav>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 px-6 py-6 space-y-4">
+      <a href="#about" class="block text-slate-700 font-semibold hover:text-brand-teal">About Us</a>
+      <a href="#causes" class="block text-slate-700 font-semibold hover:text-brand-teal">Causes & Campaigns</a>
+      <a href="#impact" class="block text-slate-700 font-semibold hover:text-brand-teal">Financial Transparency</a>
+      <a href="#volunteer" class="block text-slate-700 font-semibold hover:text-brand-teal">Volunteer ID Card</a>
+      <a href="#stories" class="block text-slate-700 font-semibold hover:text-brand-teal">Stories & Drives</a>
+      <a href="#faq" class="block text-slate-700 font-semibold hover:text-brand-teal">FAQs</a>
+      <div class="pt-4 flex flex-col gap-2">
+        <a href="#volunteer" class="w-full text-center py-2.5 rounded-xl border border-slate-300 font-semibold text-slate-700">Join as Volunteer</a>
+        <a href="#donate" class="w-full text-center py-2.5 rounded-xl bg-brand-teal text-white font-bold shadow-md">Support a Cause</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-mesh pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <!-- Hero Text -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs sm:text-sm font-semibold">
+            <span class="w-2 h-2 rounded-full bg-teal-500 animate-ping"></span>
+            <span>Registered 80G & 12A Certified NGO • 100% Tax Deductible</span>
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
+            Bridging Compassion to <br class="hidden sm:inline" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-teal via-emerald-600 to-teal-800">
+              Transform Vulnerable Lives.
+            </span>
+          </h1>
+          <p class="text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            AshaCare Samvedna drives grassroot change across India. We educate first-generation learners, deliver emergency hot meals, empower rural women, and ensure dignity for abandoned elders.
+          </p>
+
+          <!-- Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#donate" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-brand-teal to-brand-500 hover:from-teal-700 hover:to-emerald-600 text-white font-bold shadow-lg shadow-teal-500/25 text-center transition transform active:scale-95">
+              Make a Direct Impact
+            </a>
+            <a href="#volunteer" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-white border border-slate-300 hover:border-teal-500 text-slate-700 font-semibold shadow-sm hover:shadow text-center transition">
+              Get Volunteer Digital Pass
+            </a>
+          </div>
+
+          <!-- Trust Proof -->
+          <div class="pt-6 flex items-center justify-center lg:justify-start space-x-6 text-slate-500 text-xs font-medium">
+            <div class="flex items-center space-x-1.5">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+              <span>Govt. Niti Aayog Certified</span>
+            </div>
+            <div class="flex items-center space-x-1.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
+              <span>Zero Leakage Policy</span>
+            </div>
+            <div class="flex items-center space-x-1.5">
+              <i data-lucide="receipt" class="w-4 h-4 text-emerald-600"></i>
+              <span>Instant 80G Receipts</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Dynamic Interactive Feature Box -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md bg-white rounded-3xl p-6 shadow-2xl border border-slate-100 backdrop-blur-sm">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+              <div class="flex items-center space-x-3">
+                <span class="w-3 h-3 bg-red-400 rounded-full"></span>
+                <span class="w-3 h-3 bg-amber-400 rounded-full"></span>
+                <span class="w-3 h-3 bg-emerald-400 rounded-full"></span>
+                <span class="text-xs font-bold uppercase text-slate-400 ml-2 tracking-wider">Live Field Impact</span>
+              </div>
+              <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md flex items-center">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span> Verified
+              </span>
+            </div>
+
+            <!-- Hero Image Preview with badge -->
+            <div class="mt-4 relative rounded-2xl overflow-hidden aspect-video shadow-inner">
+              <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=700&q=80" alt="Children laughing with school books" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                <div class="text-white">
+                  <span class="text-xs font-bold uppercase bg-brand-coral px-2 py-0.5 rounded text-white">Project Gurukul</span>
+                  <p class="text-sm font-semibold mt-1">45 Slum Learning Centers Active Across 6 Cities</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mini Quick Contribution box -->
+            <div class="mt-5 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+              <div class="flex justify-between items-center text-xs font-bold text-slate-600 mb-2">
+                <span>Quick Daily Nutrition Pledge</span>
+                <span class="text-brand-teal font-extrabold">₹35 = 1 Healthy Meal</span>
+              </div>
+              <div class="flex gap-2">
+                <button onclick="setHeroQuickDonation(350)" class="flex-1 py-2 text-xs font-bold bg-white hover:bg-teal-50 hover:text-brand-teal border border-slate-200 rounded-xl transition">10 Meals (₹350)</button>
+                <button onclick="setHeroQuickDonation(1050)" class="flex-1 py-2 text-xs font-bold bg-white hover:bg-teal-50 hover:text-brand-teal border border-slate-200 rounded-xl transition">30 Meals (₹1,050)</button>
+                <button onclick="setHeroQuickDonation(3500)" class="flex-1 py-2 text-xs font-bold bg-brand-teal text-white rounded-xl hover:bg-teal-700 transition">100 Meals</button>
+              </div>
+            </div>
+            
+            <p class="text-[11px] text-center text-slate-400 mt-3">
+              Tax Exempt under Section 80G of Income Tax Act 1961.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white border-y border-slate-200/80 py-10" id="about">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <!-- Stat 1 -->
+        <div class="p-4 hover:translate-y-[-2px] transition duration-200">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight" id="counterChildren">38,400+</div>
+          <div class="text-sm font-semibold text-slate-500 mt-1 flex items-center justify-center gap-1.5">
+            <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-teal"></i>
+            <span>Children Educated</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-0.5">Across 4 states</p>
+        </div>
+        <!-- Stat 2 -->
+        <div class="p-4 hover:translate-y-[-2px] transition duration-200">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-coral tracking-tight" id="counterMeals">5,20,000+</div>
+          <div class="text-sm font-semibold text-slate-500 mt-1 flex items-center justify-center gap-1.5">
+            <i data-lucide="utensils" class="w-4 h-4 text-brand-coral"></i>
+            <span>Hot Meals Served</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-0.5">Zero hunger drive</p>
+        </div>
+        <!-- Stat 3 -->
+        <div class="p-4 hover:translate-y-[-2px] transition duration-200">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-emerald-600 tracking-tight" id="counterHealth">182+</div>
+          <div class="text-sm font-semibold text-slate-500 mt-1 flex items-center justify-center gap-1.5">
+            <i data-lucide="stethoscope" class="w-4 h-4 text-emerald-600"></i>
+            <span>Free Medical Camps</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-0.5">Villages covered</p>
+        </div>
+        <!-- Stat 4 -->
+        <div class="p-4 hover:translate-y-[-2px] transition duration-200">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight" id="counterVolunteers">6,850+</div>
+          <div class="text-sm font-semibold text-slate-500 mt-1 flex items-center justify-center gap-1.5">
+            <i data-lucide="users" class="w-4 h-4 text-amber-500"></i>
+            <span>Active Volunteers</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-0.5">Youth & working pros</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="causes" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-teal bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Direct Intervention</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">Active Campaigns That Need You</h2>
+        <p class="text-slate-600 mt-3 text-base">Select an initiative to see its real-time field progress, raised metrics, and pledge your support directly.</p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-12" id="campaignFilters">
+        <button onclick="filterCampaigns('all')" class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-white shadow-sm transition">All Causes</button>
+        <button onclick="filterCampaigns('Education')" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:border-teal-500 hover:text-brand-teal transition">Child Education</button>
+        <button onclick="filterCampaigns('Healthcare')" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:border-teal-500 hover:text-brand-teal transition">Healthcare & Elders</button>
+        <button onclick="filterCampaigns('Nutrition')" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:border-teal-500 hover:text-brand-teal transition">Hunger & Nutrition</button>
+        <button onclick="filterCampaigns('Disaster')" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:border-teal-500 hover:text-brand-teal transition">Disaster Relief</button>
+      </div>
+
+      <!-- Campaign Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="campaignsContainer">
+        <!-- Card 1 -->
+        <div class="campaign-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col" data-category="Education">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Child Education" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-4 left-4 bg-teal-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Education</span>
+            <span class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white text-xs font-medium px-2.5 py-1 rounded-full">18 Days Left</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 leading-snug">Sponsor Digital Classrooms for Slum Youth</h3>
+              <p class="text-slate-600 text-sm mt-2 line-clamp-2">Equipping 20 community libraries with solar power, tablets, and STEM foundational learning modules.</p>
+            </div>
+            
+            <div class="mt-6">
+              <!-- Progress Bar -->
+              <div class="flex justify-between text-xs font-bold text-slate-600 mb-1.5">
+                <span>Raised: ₹6,45,000</span>
+                <span class="text-brand-teal">80% of ₹8,00,000</span>
+              </div>
+              <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-emerald-500 h-2.5 rounded-full" style="width: 80%"></div>
+              </div>
+              <div class="mt-4 flex items-center justify-between pt-2">
+                <div class="text-xs text-slate-500 font-medium">
+                  <strong>320</strong> Donors
+                </div>
+                <button onclick="selectCampaignPreset('Child Education')" class="px-4 py-2 bg-teal-50 hover:bg-teal-100 text-brand-teal font-bold text-xs rounded-xl transition">
+                  Fund This Project &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="campaign-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col" data-category="Nutrition">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80" alt="Hot meals feeding" class="w-full h-full object-cover">
+            <span class="absolute top-4 left-4 bg-brand-coral text-white text-xs font-bold px-3 py-1 rounded-full shadow">Nutrition</span>
+            <span class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white text-xs font-medium px-2.5 py-1 rounded-full">Continuous</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 leading-snug">Annapurna: Hot Lunch for Hospital Attendees</h3>
+              <p class="text-slate-600 text-sm mt-2 line-clamp-2">Providing wholesome hygienic meals to destitute families outside government cancer and pediatrics centers.</p>
+            </div>
+            
+            <div class="mt-6">
+              <div class="flex justify-between text-xs font-bold text-slate-600 mb-1.5">
+                <span>Raised: ₹4,12,000</span>
+                <span class="text-brand-coral">68% of ₹6,00,000</span>
+              </div>
+              <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-brand-coral h-2.5 rounded-full" style="width: 68%"></div>
+              </div>
+              <div class="mt-4 flex items-center justify-between pt-2">
+                <div class="text-xs text-slate-500 font-medium">
+                  <strong>485</strong> Donors
+                </div>
+                <button onclick="selectCampaignPreset('Nutrition')" class="px-4 py-2 bg-rose-50 hover:bg-rose-100 text-brand-coral font-bold text-xs rounded-xl transition">
+                  Fund This Project &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="campaign-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col" data-category="Healthcare">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80" alt="Mobile medical camp" class="w-full h-full object-cover">
+            <span class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Elderly & Health</span>
+            <span class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white text-xs font-medium px-2.5 py-1 rounded-full">24 Days Left</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 leading-snug">Vridh Seva: Cataract Surgeries & Elder Care</h3>
+              <p class="text-slate-600 text-sm mt-2 line-clamp-2">Free ophthalmology screening and lens replacement surgery for 500 low-income senior citizens.</p>
+            </div>
+            
+            <div class="mt-6">
+              <div class="flex justify-between text-xs font-bold text-slate-600 mb-1.5">
+                <span>Raised: ₹9,80,000</span>
+                <span class="text-emerald-600">98% of ₹10,00,000</span>
+              </div>
+              <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-emerald-600 h-2.5 rounded-full" style="width: 98%"></div>
+              </div>
+              <div class="mt-4 flex items-center justify-between pt-2">
+                <div class="text-xs text-slate-500 font-medium">
+                  <strong>710</strong> Donors
+                </div>
+                <button onclick="selectCampaignPreset('Elderly Healthcare')" class="px-4 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold text-xs rounded-xl transition">
+                  Fund This Project &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="campaign-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col" data-category="Disaster">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="Disaster assistance" class="w-full h-full object-cover">
+            <span class="absolute top-4 left-4 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Disaster Relief</span>
+            <span class="absolute top-4 right-4 bg-red-600 text-white text-xs font-bold px-2.5 py-1 rounded-full animate-pulse">Critical Emergency</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 leading-snug">Emergency Ration & Clean Water for Floods</h3>
+              <p class="text-slate-600 text-sm mt-2 line-clamp-2">Providing inflatable rescue rafts, dry food packets, and chlorine water purification tablets to cut-off districts.</p>
+            </div>
+            
+            <div class="mt-6">
+              <div class="flex justify-between text-xs font-bold text-slate-600 mb-1.5">
+                <span>Raised: ₹18,30,000</span>
+                <span class="text-amber-600">73% of ₹25,00,000</span>
+              </div>
+              <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                <div class="bg-gradient-to-r from-amber-500 to-rose-500 h-2.5 rounded-full" style="width: 73%"></div>
+              </div>
+              <div class="mt-4 flex items-center justify-between pt-2">
+                <div class="text-xs text-slate-500 font-medium">
+                  <strong>1,120</strong> Donors
+                </div>
+                <button onclick="selectCampaignPreset('Disaster Relief')" class="px-4 py-2 bg-amber-50 hover:bg-amber-100 text-amber-700 font-bold text-xs rounded-xl transition">
+                  Fund This Project &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="campaign-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col" data-category="Education">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Girl child empowerment" class="w-full h-full object-cover">
+            <span class="absolute top-4 left-4 bg-teal-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Girl Empowerment</span>
+            <span class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white text-xs font-medium px-2.5 py-1 rounded-full">42 Days Left</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 leading-snug">Pankh: Secondary School Scholarships for Girls</h3>
+              <p class="text-slate-600 text-sm mt-2 line-clamp-2">Preventing dropout among adolescent girls by funding tuition, bicycles for daily commute, and sanitary hygiene kits.</p>
+            </div>
+            
+            <div class="mt-6">
+              <div class="flex justify-between text-xs font-bold text-slate-600 mb-1.5">
+                <span>Raised: ₹5,50,000</span>
+                <span class="text-brand-teal">55% of ₹10,00,000</span>
+              </div>
+              <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-500 to-emerald-500 h-2.5 rounded-full" style="width: 55%"></div>
+              </div>
+              <div class="mt-4 flex items-center justify-between pt-2">
+                <div class="text-xs text-slate-500 font-medium">
+                  <strong>240</strong> Donors
+                </div>
+                <button onclick="selectCampaignPreset('Girl Child Scholarship')" class="px-4 py-2 bg-teal-50 hover:bg-teal-100 text-brand-teal font-bold text-xs rounded-xl transition">
+                  Fund This Project &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="campaign-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col" data-category="Healthcare">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=600&q=80" alt="Blood donation" class="w-full h-full object-cover">
+            <span class="absolute top-4 left-4 bg-rose-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Emergency SOS</span>
+            <span class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white text-xs font-medium px-2.5 py-1 rounded-full">Always On</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 leading-snug">Raktdaan: 24/7 Rare Blood Group Registry</h3>
+              <p class="text-slate-600 text-sm mt-2 line-clamp-2">Connecting emergency trauma patients and Thalassemia kids with registered voluntary donors across 14 cities.</p>
+            </div>
+            
+            <div class="mt-6">
+              <div class="flex justify-between text-xs font-bold text-slate-600 mb-1.5">
+                <span>Raised: ₹3,20,000</span>
+                <span class="text-brand-coral">80% of ₹4,00,000</span>
+              </div>
+              <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                <div class="bg-gradient-to-r from-rose-500 to-brand-coral h-2.5 rounded-full" style="width: 80%"></div>
+              </div>
+              <div class="mt-4 flex items-center justify-between pt-2">
+                <div class="text-xs text-slate-500 font-medium">
+                  <strong>412</strong> Donors
+                </div>
+                <button onclick="selectCampaignPreset('Healthcare')" class="px-4 py-2 bg-rose-50 hover:bg-rose-100 text-brand-coral font-bold text-xs rounded-xl transition">
+                  Fund This Project &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="donate" class="py-20 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-start">
+        <!-- Left: Why Give & FAQ -->
+        <div class="lg:col-span-5 space-y-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-teal bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Transparent Giver Studio</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Your Giving, Quantified Down to Every Rupee.</h2>
+          <p class="text-slate-600 leading-relaxed">
+            We operate on a zero-hidden-fee philosophy. See in real-time how your contribution converts into real meals, school uniforms, medical check-ups, and medicines on the ground.
+          </p>
+
+          <!-- Interactive Perks Box -->
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start space-x-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+              <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-800 flex items-center justify-center shrink-0">
+                <i data-lucide="shield-check" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm">Tax Exemption 80G Included</h4>
+                <p class="text-xs text-slate-500 mt-0.5">Avail up to 50% deduction under Section 80G. Automated receipt issued instantly on payment.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+              <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-800 flex items-center justify-center shrink-0">
+                <i data-lucide="camera" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm">Live Photo Proof & Utilization Report</h4>
+                <p class="text-xs text-slate-500 mt-0.5">Opt-in to get WhatsApp updates showing how your sponsored kits reach beneficiaries.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+              <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
+                <i data-lucide="lock" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm">Bank-Grade 256-Bit Encryption</h4>
+                <p class="text-xs text-slate-500 mt-0.5">Support via UPI (GPay/PhonePe), Credit/Debit Card, Netbanking, or International Cards.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Donation Studio Box -->
+        <div class="lg:col-span-7">
+          <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-2xl relative border border-slate-700">
+            <!-- Header bar of Studio -->
+            <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-700/80">
+              <!-- Frequency Toggle -->
+              <div class="bg-slate-800 p-1 rounded-2xl inline-flex border border-slate-700">
+                <button type="button" id="freqOnce" onclick="setFrequency('once')" class="px-4 py-2 rounded-xl text-xs font-bold transition duration-200 bg-brand-teal text-white shadow">
+                  One-Time Gift
+                </button>
+                <button type="button" id="freqMonthly" onclick="setFrequency('monthly')" class="px-4 py-2 rounded-xl text-xs font-bold transition duration-200 text-slate-400 hover:text-white">
+                  Monthly Guardian ❤️
+                </button>
+              </div>
+
+              <!-- Currency Switcher -->
+              <div class="flex items-center space-x-1 bg-slate-800 px-3 py-1.5 rounded-2xl border border-slate-700 text-xs font-bold">
+                <span class="text-slate-400">Currency:</span>
+                <button type="button" onclick="setCurrency('INR')" id="btnINR" class="px-2 py-0.5 rounded-md bg-teal-500 text-white">₹ INR</button>
+                <button type="button" onclick="setCurrency('USD')" id="btnUSD" class="px-2 py-0.5 rounded-md text-slate-400 hover:text-white">$ USD</button>
+              </div>
+            </div>
+
+            <!-- Campaign Selector Dropdown -->
+            <div class="mt-6">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Designate Your Support To:</label>
+              <select id="donationCampaignSelect" onchange="onCampaignChange()" class="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-teal">
+                <option value="Where Needed Most">Where Needed Most (General Social Welfare)</option>
+                <option value="Child Education">Child Education & Digital Labs (Project Gurukul)</option>
+                <option value="Nutrition">Annapurna Hunger & Daily Meal Drives</option>
+                <option value="Elderly Healthcare">Vridh Seva: Cataract & Elder Care</option>
+                <option value="Disaster Relief">Urgent Floods & Emergency Relief</option>
+                <option value="Girl Child Scholarship">Pankh: Girl Child Education & Cycle Fund</option>
+              </select>
+            </div>
+
+            <!-- Amount Presets Grid -->
+            <div class="mt-6">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Select Donation Amount</label>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="presetsContainer">
+                <!-- Dynamically populated based on currency -->
+              </div>
+            </div>
+
+            <!-- Custom Amount Input -->
+            <div class="mt-4">
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400 font-bold" id="currencySymbolPrefix">₹</span>
+                <input type="number" id="customAmountInput" value="2500" min="100" class="w-full bg-slate-800 border border-slate-700 rounded-xl pl-10 pr-4 py-3 text-lg font-bold text-white focus:outline-none focus:border-brand-teal transition" placeholder="Or enter customized amount" oninput="onCustomAmountChange(this.value)">
+              </div>
+            </div>
+
+            <!-- DYNAMIC REAL-TIME IMPACT CALCULATOR WIDGET -->
+            <div class="mt-6 bg-gradient-to-r from-teal-950/60 to-emerald-950/60 border border-teal-500/30 rounded-2xl p-4 transition-all" id="impactBreakdownBox">
+              <div class="flex items-center space-x-2 text-teal-400 text-xs font-bold uppercase tracking-wider mb-2">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                <span>Your Real-World Footprint Breakdown</span>
+              </div>
+              <div class="text-sm text-slate-200 font-medium" id="impactBreakdownText">
+                Calculating tangible deliverables...
+              </div>
+            </div>
+
+            <!-- Donor Input Details -->
+            <form id="donationCheckoutForm" onsubmit="handleDonationCheckout(event)" class="mt-6 space-y-4">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">Full Legal Name *</label>
+                  <input type="text" id="donorName" required placeholder="e.g. Ramesh Sharma" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-teal">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">Email (For 80G Tax Receipt) *</label>
+                  <input type="email" id="donorEmail" required placeholder="ramesh@gmail.com" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-teal">
+                </div>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">PAN Card Number (Optional for 80G)</label>
+                  <input type="text" id="donorPAN" maxlength="10" placeholder="ABCDE1234F" class="uppercase w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-teal">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">Mobile Number (WhatsApp Updates)</label>
+                  <input type="tel" id="donorPhone" placeholder="+91 98765 43210" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-teal">
+                </div>
+              </div>
+
+              <div class="pt-2">
+                <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-teal via-emerald-500 to-teal-600 hover:from-teal-600 hover:to-emerald-700 text-white font-extrabold text-base shadow-xl shadow-teal-500/30 flex items-center justify-center space-x-2 transition transform active:scale-[0.99]">
+                  <i data-lucide="lock" class="w-4 h-4"></i>
+                  <span id="donateSubmitBtnText">Proceed to Secure Donation</span>
+                </button>
+              </div>
+            </form>
+
+            <div class="mt-4 flex items-center justify-center space-x-4 text-slate-400 text-xs">
+              <span>✓ Instant Tax Certificate</span>
+              <span>•</span>
+              <span>✓ 100% Secure Gateway</span>
+              <span>•</span>
+              <span>✓ Verified Trust</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="volunteer" class="py-20 bg-slate-50 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-teal bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Grassroot Crusaders</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">Become a HopeForward Volunteer</h2>
+        <p class="text-slate-600 mt-3 text-base">Fill in your preferences to generate your personalized <strong>AshaCare Volunteer Digital Badge & Member ID</strong> instantly!</p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <!-- Form -->
+        <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200">
+          <form id="volunteerApplicationForm" onsubmit="handleVolunteerFormSubmit(event)" class="space-y-4">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Your Full Name *</label>
+                <input type="text" id="vName" required placeholder="Aarav Sharma" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-brand-teal focus:bg-white" oninput="updateBadgePreview()">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Your City *</label>
+                <input type="text" id="vCity" required placeholder="New Delhi / Bengaluru" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-brand-teal focus:bg-white" oninput="updateBadgePreview()">
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Email Address *</label>
+                <input type="email" id="vEmail" required placeholder="aarav@gmail.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-brand-teal focus:bg-white">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Phone / WhatsApp</label>
+                <input type="tel" id="vPhone" placeholder="+91 99887 76655" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-brand-teal focus:bg-white">
+              </div>
+            </div>
+
+            <!-- Role Selector -->
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Select Preferred Service Wing *</label>
+              <select id="vRole" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-brand-teal focus:bg-white" onchange="updateBadgePreview()">
+                <option value="Weekend Teacher & Mentor">Weekend Teacher & Mentor (Slum Education)</option>
+                <option value="Emergency Blood Alert Hero">Emergency Blood Alert Hero (Raktdaan)</option>
+                <option value="Community Food Drive Volunteer">Community Food Drive Volunteer (Annapurna)</option>
+                <option value="Elder Companion & Caregiver">Elder Companion & Caregiver (Vridh Seva)</option>
+                <option value="Digital Crusader & Content">Digital Crusader (Social Media & Design)</option>
+                <option value="Disaster Relief First Responder">Disaster Relief First Responder</option>
+              </select>
+            </div>
+
+            <!-- Availability & Hours -->
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Availability</label>
+                <select id="vAvailability" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-brand-teal focus:bg-white">
+                  <option value="Weekends (2-4 hrs)">Weekends (2-4 hours)</option>
+                  <option value="Weekdays Evening">Weekdays Evening (1-2 hours)</option>
+                  <option value="On-Call Emergency">On-Call Emergency Responder</option>
+                  <option value="Remote / Virtual">Remote / Virtual Only</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Your Primary Superpower / Skill</label>
+                <input type="text" id="vSkill" placeholder="e.g. Mathematics, First Aid, Photography" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-brand-teal focus:bg-white" oninput="updateBadgePreview()">
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <button type="submit" class="w-full py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm shadow-md transition flex items-center justify-center space-x-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                <span>Register & Download Volunteer Badge</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right: Real-time Live Badge Preview Card -->
+        <div class="lg:col-span-5 flex flex-col items-center">
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Live Generated ID Card Preview</span>
+          </div>
+
+          <!-- Digital ID Card Container -->
+          <div id="volunteerBadgeCard" class="w-full max-w-sm rounded-3xl p-6 shadow-2xl relative overflow-hidden text-white transition-all transform hover:scale-[1.02]" style="background: linear-gradient(145deg, #0f172a 0%, #1e293b 60%, #0d9488 100%);">
+            <!-- Decorative Hologram Ring -->
+            <div class="absolute -right-12 -top-12 w-36 h-36 bg-teal-500/20 rounded-full blur-2xl"></div>
+            <div class="absolute -left-10 -bottom-10 w-36 h-36 bg-rose-500/20 rounded-full blur-2xl"></div>
+
+            <div class="flex items-center justify-between border-b border-slate-700/60 pb-3">
+              <div class="flex items-center space-x-2">
+                <div class="w-7 h-7 rounded-lg bg-teal-500 flex items-center justify-center text-white text-xs font-black">
+                  AC
+                </div>
+                <div>
+                  <h4 class="text-xs font-extrabold tracking-tight">ASHACARE FOUNDATION</h4>
+                  <p class="text-[9px] text-teal-300 font-semibold uppercase">Official Volunteer Crew</p>
+                </div>
+              </div>
+              <span class="text-[10px] font-bold bg-teal-500/20 border border-teal-500/40 text-teal-300 px-2 py-0.5 rounded-full">ACTIVE 2026</span>
+            </div>
+
+            <!-- Avatar & Details -->
+            <div class="mt-5 flex items-center space-x-4">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-teal-500 to-rose-400 p-0.5 shadow-lg">
+                <div class="w-full h-full bg-slate-800 rounded-2xl flex items-center justify-center overflow-hidden">
+                  <i data-lucide="user" class="w-8 h-8 text-slate-400" id="badgeAvatarIcon"></i>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white tracking-tight" id="badgeName">Aarav Sharma</h3>
+                <p class="text-xs font-semibold text-teal-400" id="badgeCity">New Delhi, India</p>
+                <div class="mt-1 flex items-center space-x-1.5">
+                  <span class="text-[10px] font-mono bg-slate-800 px-2 py-0.5 rounded text-slate-300 border border-slate-700" id="badgeID">ID: AC-84920</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Role & Superpower -->
+            <div class="mt-5 bg-slate-800/80 backdrop-blur-md rounded-2xl p-3 border border-slate-700">
+              <div class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Assigned Wing</div>
+              <div class="text-xs font-bold text-white mt-0.5" id="badgeRole">Weekend Teacher & Mentor</div>
+              <div class="mt-2 pt-2 border-t border-slate-700/60 flex justify-between items-center text-[11px]">
+                <span class="text-slate-400">Specialty:</span>
+                <span class="text-rose-300 font-semibold" id="badgeSkill">Mathematics</span>
+              </div>
+            </div>
+
+            <!-- QR Code Simulation Footer -->
+            <div class="mt-5 pt-3 border-t border-slate-700/60 flex items-center justify-between text-[10px] text-slate-400">
+              <div class="flex items-center space-x-1 text-emerald-400 font-semibold">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                <span>Niti Aayog Enrolled</span>
+              </div>
+              <span class="font-mono text-slate-400">QR-VERIFIED</span>
+            </div>
+          </div>
+
+          <p class="text-xs text-slate-400 mt-3 text-center">
+            * Instant digital card is generated on your name upon form submission.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="impact" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-teal bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Financial Rigor</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">Where Does Every 100 Rupees Go?</h2>
+        <p class="text-slate-600 mt-3 text-base">We take stewardship seriously. Our statutory audits and tax returns are made public each fiscal quarter.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 items-center">
+        <!-- Visual Progress Bars -->
+        <div class="lg:col-span-7 space-y-6">
+          <!-- Allocation 1 -->
+          <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100">
+            <div class="flex justify-between items-center mb-2 font-bold text-sm">
+              <div class="flex items-center space-x-2 text-slate-900">
+                <span class="w-3 h-3 rounded-full bg-brand-teal"></span>
+                <span>Direct Field Programs & Beneficiary Deliverables</span>
+              </div>
+              <span class="text-brand-teal font-extrabold text-base">86.4%</span>
+            </div>
+            <div class="w-full bg-slate-200 rounded-full h-3">
+              <div class="bg-brand-teal h-3 rounded-full" style="width: 86.4%"></div>
+            </div>
+            <p class="text-xs text-slate-500 mt-2">Books, raw nutritional rations, free medicines, medical mobile vans, and educator honorariums.</p>
+          </div>
+
+          <!-- Allocation 2 -->
+          <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100">
+            <div class="flex justify-between items-center mb-2 font-bold text-sm">
+              <div class="flex items-center space-x-2 text-slate-900">
+                <span class="w-3 h-3 rounded-full bg-brand-coral"></span>
+                <span>Logistics, Field Supply Chain & Storage</span>
+              </div>
+              <span class="text-brand-coral font-extrabold text-base">8.6%</span>
+            </div>
+            <div class="w-full bg-slate-200 rounded-full h-3">
+              <div class="bg-brand-coral h-3 rounded-full" style="width: 8.6%"></div>
+            </div>
+            <p class="text-xs text-slate-500 mt-2">Cold-chain insulin storage, vehicle fuel for remote tribal camps, and grain warehousing.</p>
+          </div>
+
+          <!-- Allocation 3 -->
+          <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100">
+            <div class="flex justify-between items-center mb-2 font-bold text-sm">
+              <div class="flex items-center space-x-2 text-slate-900">
+                <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                <span>Auditing, Statutory Compliance & Tech Infrastructure</span>
+              </div>
+              <span class="text-amber-500 font-extrabold text-base">5.0%</span>
+            </div>
+            <div class="w-full bg-slate-200 rounded-full h-3">
+              <div class="bg-amber-500 h-3 rounded-full" style="width: 5.0%"></div>
+            </div>
+            <p class="text-xs text-slate-500 mt-2">Independent chartered accountant audits, secure payment gateways, and 80G filing systems.</p>
+          </div>
+        </div>
+
+        <!-- Transparency Certifications Box -->
+        <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 to-teal-950 text-white p-8 rounded-3xl shadow-xl">
+          <div class="w-12 h-12 rounded-2xl bg-teal-500/20 text-teal-300 flex items-center justify-center mb-6">
+            <i data-lucide="file-check" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-2xl font-bold tracking-tight">Our Trust Credentials</h3>
+          <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+            Registered under the Indian Societies Registration Act XXI of 1860. Valid 12A, 80G, and FCRA certifications.
+          </p>
+
+          <div class="mt-6 space-y-3">
+            <div class="flex items-center justify-between text-xs py-2 border-b border-slate-700">
+              <span class="text-slate-400">80G Registration:</span>
+              <span class="font-mono font-bold text-teal-300">AABCA1234F20231</span>
+            </div>
+            <div class="flex items-center justify-between text-xs py-2 border-b border-slate-700">
+              <span class="text-slate-400">NGO Darpan (NITI Aayog):</span>
+              <span class="font-mono font-bold text-teal-300">DL/2021/0291823</span>
+            </div>
+            <div class="flex items-center justify-between text-xs py-2 border-b border-slate-700">
+              <span class="text-slate-400">Annual Audit Rating:</span>
+              <span class="font-bold text-emerald-400">Crisil Rating: V-5 (Highest Trust)</span>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-2">
+            <button onclick="showMockReceipt('Sample Annual Audit Summary (FY 2024-25)')" class="w-full py-2.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition flex items-center justify-center space-x-1.5">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>View Latest Audited Balance Sheet</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stories" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Title -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-teal bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Human Stories</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">Voices of Resilience</h2>
+        </div>
+        <p class="text-slate-500 text-sm max-w-md mt-3 md:mt-0">Real accounts of lives redirected through the relentless dedication of our volunteers and supporters.</p>
+      </div>
+
+      <!-- Testimonial Stories Cards -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Story 1 -->
+        <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200/80 flex flex-col justify-between hover:-translate-y-1 transition duration-200">
+          <div>
+            <div class="flex items-center space-x-1 text-amber-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-700 text-sm italic leading-relaxed">
+              "My father pulls an e-rickshaw. I used to teach in dim candlelight. AshaCare's Gurukul center gave me tablet access and coding classes. Today, I scored 94% in my 10th boards and dream of being a software engineer."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center space-x-3">
+            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=120&q=80" alt="Priya" class="w-11 h-11 rounded-full object-cover">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Priya Kumari</h4>
+              <p class="text-xs text-brand-teal font-medium">Class 10 Scholar • New Delhi</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 2 -->
+        <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200/80 flex flex-col justify-between hover:-translate-y-1 transition duration-200">
+          <div>
+            <div class="flex items-center space-x-1 text-amber-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-700 text-sm italic leading-relaxed">
+              "After cataract blinded both my eyes, I thought my life was over at 68. The Vridh Seva team picked me up from my village, performed surgery for free, and gave me clear sight again. I can now see my grandchildren play."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center space-x-3">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80" alt="Ramkishan" class="w-11 h-11 rounded-full object-cover">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Ramkishan Yadav</h4>
+              <p class="text-xs text-brand-teal font-medium">Beneficiary • Alwar, Rajasthan</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 3 -->
+        <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200/80 flex flex-col justify-between hover:-translate-y-1 transition duration-200">
+          <div>
+            <div class="flex items-center space-x-1 text-amber-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-700 text-sm italic leading-relaxed">
+              "Volunteering with AshaCare on Sunday food drives completely rewired how our corporate team perceives civic empathy. The seamless tracking and genuine care on the ground is truly inspiring."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center space-x-3">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Sneha" class="w-11 h-11 rounded-full object-cover">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Sneha Banerjee</h4>
+              <p class="text-xs text-brand-teal font-medium">Volunteer Mentor (6 Months)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upcoming Welfare Drives with interactive RSVP button -->
+      <div class="mt-14 bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-slate-100">
+          <div>
+            <h3 class="text-xl font-bold text-slate-900">Upcoming Ground Drives You Can Attend</h3>
+            <p class="text-xs text-slate-500 mt-1">Open participation. Bring your enthusiasm; we arrange supplies.</p>
+          </div>
+          <span class="mt-3 sm:mt-0 text-xs font-bold text-teal-700 bg-teal-50 px-3 py-1 rounded-full">3 Drives Scheduled This Month</span>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mt-6">
+          <!-- Drive 1 -->
+          <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/60 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-slate-500 mb-2">
+                <span>📍 Sangam Vihar, Delhi</span>
+                <span class="text-teal-600">THIS SUNDAY</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-base">Mega Slum Stationery & Bag Distribution</h4>
+              <p class="text-xs text-slate-600 mt-1">Distributing 600 complete school kits to children entering the new academic term.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200/60 flex justify-between items-center">
+              <span class="text-xs font-semibold text-slate-500">9:30 AM - 1:00 PM</span>
+              <button onclick="rsvpDrive(this, 'Delhi Stationery Drive')" class="px-3 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold transition">
+                RSVP Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Drive 2 -->
+          <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/60 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-slate-500 mb-2">
+                <span>📍 Dharavi, Mumbai</span>
+                <span class="text-rose-600">SATURDAY</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-base">Community Blood Donation & Health Check</h4>
+              <p class="text-xs text-slate-600 mt-1">Partnered with Red Cross Blood Bank. Free hemoglobin and general sugar checks for women.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200/60 flex justify-between items-center">
+              <span class="text-xs font-semibold text-slate-500">10:00 AM - 4:00 PM</span>
+              <button onclick="rsvpDrive(this, 'Mumbai Blood Drive')" class="px-3 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold transition">
+                RSVP Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Drive 3 -->
+          <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/60 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-slate-500 mb-2">
+                <span>📍 Whitefield, Bengaluru</span>
+                <span class="text-amber-600">NEXT WEEKEND</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-base">Annapurna Weekend Hot Khichdi Cookout</h4>
+              <p class="text-xs text-slate-600 mt-1">Cooking and packing 1,500 nutrient-rich meals for construction labor colonies.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200/60 flex justify-between items-center">
+              <span class="text-xs font-semibold text-slate-500">7:00 AM - 11:30 AM</span>
+              <button onclick="rsvpDrive(this, 'Bengaluru Meal Drive')" class="px-3 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold transition">
+                RSVP Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-teal bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Clear Answers</span>
+        <h2 class="text-3xl font-extrabold text-slate-900 mt-3 tracking-tight">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- FAQ 1 -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden transition">
+          <button onclick="toggleFaq(this)" class="w-full text-left px-6 py-4.5 bg-slate-50 hover:bg-slate-100/80 flex items-center justify-between font-bold text-slate-900 text-sm sm:text-base">
+            <span>How and when do I receive my 80G Tax Exemption Certificate?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+          </button>
+          <div class="faq-content hidden px-6 py-4 bg-white text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+            As soon as your donation is completed, our system instantly triggers a digital receipt to your registered email ID with our 80G registration number and Unique Document Identification (UDIN). You can claim 50% deduction while filing your Income Tax Return.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden transition">
+          <button onclick="toggleFaq(this)" class="w-full text-left px-6 py-4.5 bg-slate-50 hover:bg-slate-100/80 flex items-center justify-between font-bold text-slate-900 text-sm sm:text-base">
+            <span>Can I visit the school or community camp I sponsor?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+          </button>
+          <div class="faq-content hidden px-6 py-4 bg-white text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+            Yes, absolutely! We encourage givers and donors to attend our Saturday Gurukul sessions or clinic camps. Write to us at <code>visit@ashacare.org</code> at least 48 hours prior to arrange a field visit alongside our community coordinators.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden transition">
+          <button onclick="toggleFaq(this)" class="w-full text-left px-6 py-4.5 bg-slate-50 hover:bg-slate-100/80 flex items-center justify-between font-bold text-slate-900 text-sm sm:text-base">
+            <span>Do you accept in-kind donations like clothes, books, and laptops?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+          </button>
+          <div class="faq-content hidden px-6 py-4 bg-white text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+            Yes! We accept working laptops/tablets for our slum digital centers, as well as washed, intact clothing and unopened medicines within shelf life. Drop-off points are available in Delhi, Mumbai, Bengaluru, and Pune.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden transition">
+          <button onclick="toggleFaq(this)" class="w-full text-left px-6 py-4.5 bg-slate-50 hover:bg-slate-100/80 flex items-center justify-between font-bold text-slate-900 text-sm sm:text-base">
+            <span>What commitments are required to be a registered volunteer?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+          </button>
+          <div class="faq-content hidden px-6 py-4 bg-white text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+            There is zero mandatory fee. You can contribute as little as 2 hours on alternate weekends. All registered volunteers receive our digital badge ID and an official certificate of appreciation after completing 20 hours of service.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+        <!-- Col 1: About -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-brand-teal flex items-center justify-center text-white font-bold">
+              <i data-lucide="heart" class="w-5 h-5 fill-white"></i>
+            </div>
+            <div>
+              <span class="text-xl font-extrabold text-white">AshaCare Foundation</span>
+              <p class="text-xs text-brand-coral font-semibold">Samvedna Social Welfare Trust</p>
+            </div>
+          </div>
+          <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
+            Committed to building equitable pathways for marginalized families. Transforming lives via education, healthcare, nutrition, and dignity since 2014.
+          </p>
+          <div class="flex items-center space-x-3 pt-2 text-slate-400">
+            <a href="#" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-teal-600 hover:text-white flex items-center justify-center transition"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+            <a href="#" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-teal-600 hover:text-white flex items-center justify-center transition"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+            <a href="#" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-teal-600 hover:text-white flex items-center justify-center transition"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+            <a href="#" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-teal-600 hover:text-white flex items-center justify-center transition"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="space-y-3">
+          <h4 class="text-white font-bold text-sm tracking-wider uppercase">Our Programs</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><a href="#causes" class="hover:text-white transition">Project Gurukul</a></li>
+            <li><a href="#causes" class="hover:text-white transition">Annapurna Meals</a></li>
+            <li><a href="#causes" class="hover:text-white transition">Vridh Seva (Elders)</a></li>
+            <li><a href="#causes" class="hover:text-white transition">Raktdaan Registry</a></li>
+            <li><a href="#causes" class="hover:text-white transition">Pankh Girl Education</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Giver Support -->
+        <div class="space-y-3">
+          <h4 class="text-white font-bold text-sm tracking-wider uppercase">Givers & Legal</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><a href="#donate" class="hover:text-white transition">Donate via UPI / Card</a></li>
+            <li><a href="#impact" class="hover:text-white transition">Section 80G Tax Guide</a></li>
+            <li><a href="#impact" class="hover:text-white transition">Audited Statements</a></li>
+            <li><a href="#volunteer" class="hover:text-white transition">Volunteer Portal</a></li>
+            <li><a href="#" onclick="showMockReceipt('CSR Corporate Inquiry Form')" class="hover:text-white transition">CSR Partnership Desk</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Newsletter -->
+        <div class="space-y-3">
+          <h4 class="text-white font-bold text-sm tracking-wider uppercase">Ground Dispatch</h4>
+          <p class="text-xs text-slate-400">Monthly stories of hope, transparency reports, and drive invites.</p>
+          <form onsubmit="handleNewsletter(event)" class="space-y-2">
+            <input type="email" required placeholder="Enter your email" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:border-brand-teal">
+            <button type="submit" class="w-full py-2 bg-brand-teal hover:bg-teal-600 rounded-xl text-xs font-bold text-white transition">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <p>&copy; 2026 AshaCare Samvedna Trust. All Rights Reserved. Reg. No. DEL/IV/8912/2014.</p>
+        <div class="flex space-x-6">
+          <a href="#" class="hover:text-slate-400">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-400">Terms of Service</a>
+          <a href="#" class="hover:text-slate-400">80G Compliance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="paymentModal" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl animate-fade-in border border-slate-200">
+      <!-- Modal Header -->
+      <div class="bg-gradient-to-r from-slate-900 to-teal-900 text-white p-6 relative">
+        <button onclick="closePaymentModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        <span class="text-[10px] font-bold uppercase tracking-wider bg-teal-500/30 text-teal-300 px-2.5 py-0.5 rounded-full">Secure Gateway Sandbox</span>
+        <h3 class="text-xl font-bold mt-2">Complete Your Contribution</h3>
+        <p class="text-xs text-teal-200 mt-1" id="modalSubhead">Pledging for AshaCare Initiatives</p>
+      </div>
+
+      <!-- Modal Body (Payment Options) -->
+      <div class="p-6 space-y-5" id="modalPaymentStep1">
+        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex items-center justify-between">
+          <div>
+            <span class="text-xs text-slate-500 uppercase font-bold">Total Contribution:</span>
+            <div class="text-2xl font-black text-slate-900" id="modalTotalAmount">₹2,500</div>
+          </div>
+          <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800" id="modalFrequencyTag">One-Time</span>
+        </div>
+
+        <!-- Payment Method Tabs -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Select Payment Method</label>
+          <div class="grid grid-cols-3 gap-2">
+            <button onclick="selectPaymentTab('upi')" id="tabUpi" class="pay-tab py-2.5 px-3 border-2 border-brand-teal bg-teal-50 text-brand-teal rounded-xl text-xs font-bold flex flex-col items-center gap-1">
+              <i data-lucide="qr-code" class="w-4 h-4"></i>
+              <span>UPI / QR</span>
+            </button>
+            <button onclick="selectPaymentTab('card')" id="tabCard" class="pay-tab py-2.5 px-3 border border-slate-200 rounded-xl text-xs font-semibold text-slate-600 flex flex-col items-center gap-1 hover:border-slate-300">
+              <i data-lucide="credit-card" class="w-4 h-4"></i>
+              <span>Cards</span>
+            </button>
+            <button onclick="selectPaymentTab('net')" id="tabNet" class="pay-tab py-2.5 px-3 border border-slate-200 rounded-xl text-xs font-semibold text-slate-600 flex flex-col items-center gap-1 hover:border-slate-300">
+              <i data-lucide="building" class="w-4 h-4"></i>
+              <span>NetBanking</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab 1: UPI Simulator -->
+        <div id="contentUpi" class="space-y-3 text-center">
+          <div class="p-4 bg-slate-50 rounded-2xl border border-dashed border-slate-300 inline-block">
+            <!-- Simulated QR -->
+            <div class="w-36 h-36 bg-slate-900 rounded-xl mx-auto flex items-center justify-center p-2 text-white text-center">
+              <div>
+                <i data-lucide="qr-code" class="w-16 h-16 mx-auto text-teal-400"></i>
+                <span class="text-[9px] font-mono block mt-1 text-slate-300">Scan via GPay/PhonePe</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-xs text-slate-500">Scan QR or authorize payment via your preferred UPI app.</p>
+        </div>
+
+        <!-- Tab 2: Mock Card -->
+        <div id="contentCard" class="hidden space-y-3">
+          <input type="text" placeholder="Card Number (4444 5555 6666 7777)" value="4532 8901 2345 6789" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono text-slate-800">
+          <div class="grid grid-cols-2 gap-2">
+            <input type="text" placeholder="MM/YY" value="12/28" class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono text-slate-800">
+            <input type="password" placeholder="CVV" value="890" class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono text-slate-800">
+          </div>
+        </div>
+
+        <!-- Tab 3: Mock Netbanking -->
+        <div id="contentNet" class="hidden space-y-2">
+          <select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800">
+            <option>HDFC Bank</option>
+            <option>State Bank of India (SBI)</option>
+            <option>ICICI Bank</option>
+            <option>Axis Bank</option>
+          </select>
+        </div>
+
+        <!-- Action Button -->
+        <button onclick="simulatePaymentSuccess()" class="w-full py-3.5 bg-gradient-to-r from-emerald-600 to-brand-teal hover:from-emerald-700 hover:to-teal-700 text-white font-extrabold text-sm rounded-xl shadow-lg transition">
+          Confirm & Generate Tax Exemption Receipt
+        </button>
+      </div>
+
+      <!-- Modal Step 2: Instant Receipt Generator -->
+      <div class="p-6 hidden space-y-4" id="modalPaymentSuccess">
+        <div class="text-center space-y-2">
+          <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+            <i data-lucide="check" class="w-6 h-6 stroke-[3]"></i>
+          </div>
+          <h3 class="text-xl font-extrabold text-slate-900">Thank You For Your Kindness!</h3>
+          <p class="text-xs text-slate-500">Your transaction was successful. 80G tax receipt has been generated below.</p>
+        </div>
+
+        <!-- Printable Styled Receipt -->
+        <div id="receiptContent" class="bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl p-4 text-xs space-y-2 text-slate-700 font-mono">
+          <div class="flex justify-between border-b pb-2 font-bold text-slate-900">
+            <span>AshaCare Foundation (80G)</span>
+            <span id="receiptId">REC-2026-9812</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Donor Name:</span>
+            <span class="font-bold text-slate-900" id="receiptDonorName">Ramesh Sharma</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Amount Paid:</span>
+            <span class="font-bold text-emerald-700" id="receiptAmount">₹2,500</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Program:</span>
+            <span class="font-bold text-slate-900" id="receiptProgram">Project Gurukul</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Exemption Category:</span>
+            <span class="text-slate-900 font-bold">Sec 80G(5)(vi) IT Act</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Date & Timestamp:</span>
+            <span id="receiptTimestamp">12 Oct 2026</span>
+          </div>
+          <div class="text-[10px] text-slate-400 pt-2 border-t">
+            Eligible for 50% deduction. Valid for filing assessment year 2026-27.
+          </div>
+        </div>
+
+        <div class="flex gap-2">
+          <button onclick="downloadReceiptPrint()" class="flex-1 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold transition flex items-center justify-center space-x-1.5">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>Print / Save PDF</span>
+          </button>
+          <button onclick="closePaymentModal()" class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 max-w-sm w-full bg-slate-900 text-white p-4 rounded-2xl shadow-2xl border border-slate-700 flex items-start space-x-3">
+    <div class="w-8 h-8 rounded-xl bg-teal-500 text-white flex items-center justify-center shrink-0 mt-0.5" id="toastIcon">
+      <i data-lucide="bell" class="w-4 h-4"></i>
+    </div>
+    <div class="flex-1">
+      <h5 class="text-xs font-bold text-white uppercase tracking-wider" id="toastTitle">Notification</h5>
+      <p class="text-xs text-slate-300 mt-0.5 leading-snug" id="toastMessage">Your action was processed.</p>
+    </div>
+  </div>
+
+  <script>
+    // Global State
+    let currentCurrency = 'INR';
+    let currentFrequency = 'once';
+    let currentAmount = 2500;
+    let selectedCampaign = 'Where Needed Most';
+
+    const presets = {
+      INR: [500, 1200, 2500, 5000],
+      USD: [15, 35, 75, 150]
+    };
+
+    // Initialize Lucide icons and components
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      renderPresetChips();
+      calculateImpact(currentAmount);
+      updateBadgePreview();
+
+      // Mobile Menu Toggle
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+      }
+    });
+
+    // 1. Currency & Frequency Handlers
+    function setCurrency(currency) {
+      currentCurrency = currency;
+      const btnINR = document.getElementById('btnINR');
+      const btnUSD = document.getElementById('btnUSD');
+      const prefix = document.getElementById('currencySymbolPrefix');
+
+      if (currency === 'INR') {
+        btnINR.className = 'px-2 py-0.5 rounded-md bg-teal-500 text-white';
+        btnUSD.className = 'px-2 py-0.5 rounded-md text-slate-400 hover:text-white';
+        prefix.textContent = '₹';
+        currentAmount = 2500;
+      } else {
+        btnUSD.className = 'px-2 py-0.5 rounded-md bg-teal-500 text-white';
+        btnINR.className = 'px-2 py-0.5 rounded-md text-slate-400 hover:text-white';
+        prefix.textContent = '$';
+        currentAmount = 35;
+      }
+
+      document.getElementById('customAmountInput').value = currentAmount;
+      renderPresetChips();
+      calculateImpact(currentAmount);
+    }
+
+    function setFrequency(freq) {
+      currentFrequency = freq;
+      const btnOnce = document.getElementById('freqOnce');
+      const btnMonthly = document.getElementById('freqMonthly');
+
+      if (freq === 'once') {
+        btnOnce.className = 'px-4 py-2 rounded-xl text-xs font-bold transition duration-200 bg-brand-teal text-white shadow';
+        btnMonthly.className = 'px-4 py-2 rounded-xl text-xs font-bold transition duration-200 text-slate-400 hover:text-white';
+      } else {
+        btnMonthly.className = 'px-4 py-2 rounded-xl text-xs font-bold transition duration-200 bg-brand-teal text-white shadow';
+        btnOnce.className = 'px-4 py-2 rounded-xl text-xs font-bold transition duration-200 text-slate-400 hover:text-white';
+      }
+      calculateImpact(currentAmount);
+    }
+
+    function renderPresetChips() {
+      const container = document.getElementById('presetsContainer');
+      container.innerHTML = '';
+      const list = presets[currentCurrency];
+      const symbol = currentCurrency === 'INR' ? '₹' : '$';
+
+      list.forEach(val => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => selectPresetAmount(val);
+        const isActive = val === currentAmount;
+        btn.className = `py-2.5 px-3 rounded-xl text-xs font-extrabold border transition-all ${
+          isActive 
+            ? 'bg-brand-teal text-white border-brand-teal shadow-md shadow-teal-500/30' 
+            : 'bg-slate-800 text-slate-300 border-slate-700 hover:border-slate-500 hover:text-white'
+        }`;
+        btn.textContent = `${symbol}${val.toLocaleString()}`;
+        container.appendChild(btn);
+      });
+    }
+
+    function selectPresetAmount(val) {
+      currentAmount = val;
+      document.getElementById('customAmountInput').value = val;
+      renderPresetChips();
+      calculateImpact(val);
+    }
+
+    function onCustomAmountChange(val) {
+      const num = parseFloat(val);
+      if (!isNaN(num) && num > 0) {
+        currentAmount = num;
+        renderPresetChips();
+        calculateImpact(num);
+      }
+    }
+
+    function onCampaignChange() {
+      selectedCampaign = document.getElementById('donationCampaignSelect').value;
+      calculateImpact(currentAmount);
+    }
+
+    // 2. Real-time Impact Breakdown Calculator
+    function calculateImpact(amount) {
+      const impactText = document.getElementById('impactBreakdownText');
+      const inrEquivalent = currentCurrency === 'USD' ? amount * 83 : amount;
+      const freqMultiplier = currentFrequency === 'monthly' ? 'every single month' : 'immediately';
+
+      let description = '';
+
+      if (inrEquivalent < 600) {
+        const meals = Math.floor(inrEquivalent / 35);
+        description = `Provides <strong>${meals} warm nutritional meals</strong> to patients and daily wage workers ${freqMultiplier}.`;
+      } else if (inrEquivalent < 1500) {
+        const kits = Math.floor(inrEquivalent / 450);
+        description = `Funds <strong>${kits} school stationery & notebook kits</strong> + 1 month of after-school tutoring for a child ${freqMultiplier}.`;
+      } else if (inrEquivalent < 3500) {
+        description = `Covers <strong>1 senior citizen's complete diagnostic health checkup</strong>, prescription spectacles & 30 days of chronic disease medication.`;
+      } else if (inrEquivalent < 8000) {
+        description = `Sponsors <strong>1 underprivileged girl child's complete quarter scholarship</strong>, including school supplies and digital lab access.`;
+      } else {
+        const families = Math.floor(inrEquivalent / 3500);
+        description = `Provides <strong>emergency dry-ration & clean drinking water kits for ${families} displaced families</strong> in disaster impact zones!`;
+      }
+
+      impactText.innerHTML = description;
+    }
+
+    // Hero quick contribution button handler
+    function setHeroQuickDonation(inrVal) {
+      setCurrency('INR');
+      selectPresetAmount(inrVal);
+      const target = document.getElementById('donate');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+      showToast('Donation Tier Selected', `Selected ₹${inrVal} for immediate hot nutrition meals.`);
+    }
+
+    function selectCampaignPreset(campaignName) {
+      const select = document.getElementById('donationCampaignSelect');
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].text.toLowerCase().includes(campaignName.toLowerCase()) || select.options[i].value.toLowerCase().includes(campaignName.toLowerCase())) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+      onCampaignChange();
+      const target = document.getElementById('donate');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+      showToast('Campaign Linked', `Now directing contributions to: ${campaignName}`);
+    }
+
+    // 3. Campaign Category Filter
+    function filterCampaigns(category) {
+      const cards = document.querySelectorAll('.campaign-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('active', 'bg-slate-900', 'text-white');
+        btn.classList.add('bg-white', 'text-slate-600');
+      });
+
+      // Highlight clicked button
+      event.target.classList.add('active', 'bg-slate-900', 'text-white');
+      event.target.classList.remove('bg-white', 'text-slate-600');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // 4. Live Volunteer Badge Generator
+    function updateBadgePreview() {
+      const name = document.getElementById('vName').value.trim() || 'Aarav Sharma';
+      const city = document.getElementById('vCity').value.trim() || 'New Delhi, India';
+      const role = document.getElementById('vRole').value || 'Weekend Teacher & Mentor';
+      const skill = document.getElementById('vSkill').value.trim() || 'Mathematics';
+
+      document.getElementById('badgeName').textContent = name;
+      document.getElementById('badgeCity').textContent = city;
+      document.getElementById('badgeRole').textContent = role;
+      document.getElementById('badgeSkill').textContent = skill;
+    }
+
+    function handleVolunteerFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('vName').value || 'Volunteer';
+      const randomID = 'AC-' + Math.floor(10000 + Math.random() * 90000);
+      document.getElementById('badgeID').textContent = 'ID: ' + randomID;
+
+      showToast('Welcome to AshaCare!', `Digital ID Card ${randomID} activated for ${name}. Orientation details sent to your email.`);
+
+      // Subtle celebration pulse on badge card
+      const card = document.getElementById('volunteerBadgeCard');
+      card.classList.add('ring-4', 'ring-teal-400');
+      setTimeout(() => card.classList.remove('ring-4', 'ring-teal-400'), 2500);
+    }
+
+    // 5. Checkout & Payment Modal Simulation
+    function handleDonationCheckout(e) {
+      e.preventDefault();
+      const name = document.getElementById('donorName').value;
+      const sym = currentCurrency === 'INR' ? '₹' : '$';
+
+      document.getElementById('modalTotalAmount').textContent = `${sym}${currentAmount.toLocaleString()}`;
+      document.getElementById('modalFrequencyTag').textContent = currentFrequency === 'monthly' ? 'Monthly Pledge' : 'One-Time';
+      document.getElementById('modalSubhead').textContent = `Benefiting: ${selectedCampaign}`;
+
+      document.getElementById('modalPaymentStep1').classList.remove('hidden');
+      document.getElementById('modalPaymentSuccess').classList.add('hidden');
+      document.getElementById('paymentModal').classList.remove('hidden');
+    }
+
+    function closePaymentModal() {
+      document.getElementById('paymentModal').classList.add('hidden');
+    }
+
+    function selectPaymentTab(tab) {
+      document.querySelectorAll('.pay-tab').forEach(b => {
+        b.className = 'pay-tab py-2.5 px-3 border border-slate-200 rounded-xl text-xs font-semibold text-slate-600 flex flex-col items-center gap-1 hover:border-slate-300';
+      });
+      document.getElementById('contentUpi').classList.add('hidden');
+      document.getElementById('contentCard').classList.add('hidden');
+      document.getElementById('contentNet').classList.add('hidden');
+
+      if (tab === 'upi') {
+        document.getElementById('tabUpi').className = 'pay-tab py-2.5 px-3 border-2 border-brand-teal bg-teal-50 text-brand-teal rounded-xl text-xs font-bold flex flex-col items-center gap-1';
+        document.getElementById('contentUpi').classList.remove('hidden');
+      } else if (tab === 'card') {
+        document.getElementById('tabCard').className = 'pay-tab py-2.5 px-3 border-2 border-brand-teal bg-teal-50 text-brand-teal rounded-xl text-xs font-bold flex flex-col items-center gap-1';
+        document.getElementById('contentCard').classList.remove('hidden');
+      } else {
+        document.getElementById('tabNet').className = 'pay-tab py-2.5 px-3 border-2 border-brand-teal bg-teal-50 text-brand-teal rounded-xl text-xs font-bold flex flex-col items-center gap-1';
+        document.getElementById('contentNet').classList.remove('hidden');
+      }
+    }
+
+    function simulatePaymentSuccess() {
+      const donorName = document.getElementById('donorName').value || 'Generous Supporter';
+      const sym = currentCurrency === 'INR' ? '₹' : '$';
+
+      document.getElementById('modalPaymentStep1').classList.add('hidden');
+      document.getElementById('modalPaymentSuccess').classList.remove('hidden');
+
+      document.getElementById('receiptId').textContent = 'REC-' + new Date().getFullYear() + '-' + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('receiptDonorName').textContent = donorName;
+      document.getElementById('receiptAmount').textContent = `${sym}${currentAmount.toLocaleString()} (${currentFrequency.toUpperCase()})`;
+      document.getElementById('receiptProgram').textContent = selectedCampaign;
+      document.getElementById('receiptTimestamp').textContent = new Date().toLocaleDateString('en-IN', {
+        day: 'numeric', month: 'short', year: 'numeric'
+      });
+
+      showToast('Payment Verified', 'Official 80G tax receipt ready for download.');
+    }
+
+    function downloadReceiptPrint() {
+      const printContents = document.getElementById('receiptContent').innerHTML;
+      const originalContents = document.body.innerHTML;
+      
+      const printWindow = window.open('', '', 'height=500, width=600');
+      printWindow.document.write('<html><head><title>AshaCare 80G Tax Receipt</title>');
+      printWindow.document.write('<style>body{font-family: monospace; padding: 20px;} .border-b{border-bottom: 1px solid #ccc; padding-bottom: 8px;} .flex{display:flex; justify-content:space-between; margin: 8px 0;}</style>');
+      printWindow.document.write('</head><body>');
+      printWindow.document.write('<h2>ASHACARE FOUNDATION - TAX DEDUCTIBLE RECEIPT</h2>');
+      printWindow.document.write(printContents);
+      printWindow.document.write('</body></html>');
+      printWindow.document.close();
+      printWindow.focus();
+      printWindow.print();
+    }
+
+    // 6. Interactive Drive RSVP Handler
+    function rsvpDrive(btn, driveName) {
+      if (btn.classList.contains('bg-emerald-600')) {
+        btn.className = 'px-3 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold transition';
+        btn.textContent = 'RSVP Now';
+        showToast('RSVP Cancelled', `You removed your slot for ${driveName}.`);
+      } else {
+        btn.className = 'px-3 py-1.5 rounded-lg bg-emerald-600 text-white text-xs font-bold transition flex items-center space-x-1';
+        btn.innerHTML = '<span>✓ Confirmed</span>';
+        showToast('Spot Reserved!', `Spot confirmed for ${driveName}. Event address shared via SMS.`);
+      }
+    }
+
+    // 7. FAQ Accordion Toggle
+    function toggleFaq(button) {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('svg');
+      const isHidden = content.classList.contains('hidden');
+
+      // Close other FAQs
+      document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+      document.querySelectorAll('#faq svg').forEach(i => i.style.transform = 'rotate(0deg)');
+
+      if (isHidden) {
+        content.classList.remove('hidden');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    // 8. Newsletter & Generic Alerts
+    function handleNewsletter(e) {
+      e.preventDefault();
+      showToast('Subscribed to Dispatch', 'Thank you for connecting with our grassroot missions.');
+      e.target.reset();
+    }
+
+    function showMockReceipt(title) {
+      showToast(title, 'Official documentation is being prepared for secure access.');
+    }
+
+    // Toast Notification Utility
+    function showToast(title, message) {
+      const toast = document.getElementById('toastNotification');
+      document.getElementById('toastTitle').textContent = title;
+      document.getElementById('toastMessage').textContent = message;
+
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
